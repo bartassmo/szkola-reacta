@@ -1,0 +1,98 @@
+.card {
+  background-color: #222f3e;
+  color: #c8d6e5;
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  font-size: 14px;
+}
+
+.card__top {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.card__author {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f44336;
+  color: #121212;
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 15px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.card__title {
+  margin-bottom: 5px;
+}
+
+.card__date {
+  opacity: .7;
+}
+
+.card__img {
+  max-width: 100%;
+}
+
+.card__excerpt {
+  padding: 16px;
+}
+
+.card__excerpt p {
+  margin: 0;
+}
+
+.card__footer {
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__icon {
+  padding: 8px;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: all .2s;
+  cursor: pointer;
+}
+
+.card__icon:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.card__icon.active {
+  transform: rotateX(180deg);
+}
+
+.card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.card__body {
+  padding: 16px;
+}
+
+.ReactCollapse--collapse {
+  transition: height .5s;
+}
