@@ -1,6 +1,6 @@
 import React from "react";
 
-import { colors } from './colors';
+import { colors } from 'helpers/colors';
 
 function Input({ bgColor, color='imperial', borderSize='1px', borderRadius='2px', borderColor='imperial' }) {
 

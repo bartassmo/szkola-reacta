@@ -5,6 +5,7 @@
   flex-direction: column;
   max-width: 350px;
   font-size: 14px;
+  margin: 0 auto;
 }
 
 .card__top {

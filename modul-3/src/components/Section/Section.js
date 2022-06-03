@@ -1,6 +1,6 @@
 import React from "react";
 
-import { colors } from "components/Form/colors";
+import { colors } from "helpers/colors";
 
 const styles = {
   padding: '2.5rem 0',

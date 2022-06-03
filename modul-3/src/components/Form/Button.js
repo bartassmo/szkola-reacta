@@ -3,7 +3,7 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 
-import { colors } from './colors';
+import { colors } from 'helpers/colors';
 
 function Button({ bgColor='bleu', color='amour', icon, children  }) {
 
@@ -18,6 +18,7 @@ function Button({ bgColor='bleu', color='amour', icon, children  }) {
     fontSize: 16,
     backgroundColor: `${colors[bgColor]}`,
     color: `${colors[color]}`,
+    cursor: 'not-allowed'
   }
 
   return (

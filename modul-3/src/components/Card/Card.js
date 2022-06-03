@@ -13,7 +13,7 @@ function Card({ author, title, date, img, excerpt, content }) {
     () => setIsOpened(!isOpened),
     [isOpened]
   );
-  
+
   return (
     <div className="card">
       <div className="card__top">
