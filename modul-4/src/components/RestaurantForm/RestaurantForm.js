@@ -15,8 +15,7 @@ const styles = {
   },
   input: {
     padding: '.5rem 1rem',
-    lineHeight: 1,
-    WebkitAppearance: 'none'
+    lineHeight: 1
   },
   button: {
     alignSelf: 'center',
