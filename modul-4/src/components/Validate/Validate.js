@@ -92,7 +92,7 @@ const Validate = () => {
   const genderManInput = useRef(null);
   const agreeInput = useRef(null);
 
-  const form = document.querySelector('form');
+  // const form = document.querySelector('form');
 
   const [nameMsg, setNameMsg] = useState("");
   const [emailMsg, setEmailMsg] = useState("");

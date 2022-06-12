@@ -8,13 +8,20 @@ const styles = {
   container: {
     maxWidth: '50vw',
     width: '100%',
+  },
+  title: {
+    fontSize: 20,
+    marginTop: 0,
+    marginBottom: 25,
+    textAlign: 'center'
   }
 }
 
-const Section = ({ children }) => {
+const Section = ({ sectionTitle, children }) => {
   return (
     <section style={ styles }>
       <div style={ styles.container }>
+        <h2 style={ styles.title }>{ sectionTitle }</h2>
         { children }
       </div>
     </section>
