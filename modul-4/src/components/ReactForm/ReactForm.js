@@ -101,7 +101,7 @@ const ReactForm = () => {
   return (
     <div style={ styles }>
       <div style={message ? { ...styles.thanks, ...styles.active } : { ...styles.thanks, ...styles.inactive} }>
-        <strong>Dziękujemy!</strong> 
+        <strong>Dziękujemy!</strong>
         <span>Twoja wiadomość została wysłana.</span>
         <button type="button" style={ styles.button } onClick={handleReset} >Wyślij nowy formularz</button>
       </div>
