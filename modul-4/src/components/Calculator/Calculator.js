@@ -45,6 +45,20 @@ const Calculator = () => {
     }
   }
 
+  const deleteItem = (e) => {
+    const elemID = e.target.parentNode.getAttribute('id');
+    const elemType = e.target.parentNode.getAttribute('data-type');
+    if(elemType === 'cost') {
+      setCost( cost.filter(el => {
+        return el.id !== elemID;
+      }))
+    } else {
+      setIncome( income.filter(el => {
+        return el.id !== elemID;
+      }))
+    }
+  }
+
   useEffect(() => {
     localStorage.setItem("localData", JSON.stringify({ cost, income }));
 
@@ -74,6 +88,7 @@ const Calculator = () => {
             category={ el.category }
             name={ el.name }
             value={ el.value }
+            onClick={ deleteItem }
           />
         ))}
       </div>
@@ -86,6 +101,7 @@ const Calculator = () => {
             category={ el.category }
             name={ el.name }
             value={ el.value }
+            onClick={ deleteItem }
           />
         ))}
       </div>
