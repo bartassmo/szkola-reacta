@@ -11,7 +11,9 @@ const styles = {
   border: `1px solid ${colors.blue}`,
   color: colors.primary,
   cursor: 'pointer',
-  transition: 'all .2s ease-in-out'
+  transition: 'all .2s ease-in-out',
+  margin: '0 auto',
+  display: 'inherit'
 }
 
 const Button = React.forwardRef(({ mouseOver, mouseLeave }, ref) => {

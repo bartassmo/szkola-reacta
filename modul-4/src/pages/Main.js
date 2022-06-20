@@ -31,18 +31,18 @@ const Main = () => {
   }
   return (
     <>
-      {/* <Section sectionTitle="Rachunek w restauracji">
+      <Section sectionTitle="Rachunek w restauracji">
         <RestaurantForm />
-      </Section> */}
+      </Section>
       <Section sectionTitle="Formularz kontaktowy">
         <Validate />
       </Section>
-      {/* <Section sectionTitle="React Hook Form">
+      <Section sectionTitle="React Hook Form">
         <ReactForm />
       </Section>
       <Section sectionTitle="Domowe finanse">
         <Calculator />
-      </Section> */}
+      </Section>
       <Section sectionTitle="Button - zmiana koloru">
         <Button ref={ btnRef } mouseOver={ mouseHover } mouseLeave={ mouseLeave } />
       </Section>
