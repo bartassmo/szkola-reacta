@@ -60,30 +60,22 @@ const errMsg = {
   agreeMsg: "Wyrażenie zgody jest wymagane"
 };
 
-function useInput(initialValue = '') {
-  const [value, setValue] = useState('');
-
-  const handleChange = (e) => {
-    if (e.target.type === "radio") {
-      setValue(e.target.value);
-    } else if (e.target.type === "checkbox") {
-      setValue(e.target.checked);
-    } else {
-      setValue(e.target.value);
-      e.target.style.border = e.target.value ? validInput : invalidInput;
-    }
-  }
-
-  return [value, handleChange];
-}
+const initialState = {
+  name: '',
+  email: '',
+  bio: '',
+  gender: '',
+  agree: ''
+};
 
 const Validate = () => {
-  const [name, handleNameChange] = useInput('');
-  const [email, handleEmailChange] = useInput('');
-  const [bio, handleBioChange] = useInput('');
-  const [gender, handleGenderChange] = useInput('');
-  const [agree, handleAgreeChange] = useInput(false);
-  const [validFields, setValidFields] = useState(false);
+  const [
+    { name, email, bio, gender, agree },
+    setState ] = useState(initialState);
+
+  const clearState = () => {
+    setState({ ...initialState});
+  }
   const [isFormSent, setIsFormSent] = useState(false);
   const nameInput = useRef(null);
   const emailInput = useRef(null);
@@ -92,7 +84,15 @@ const Validate = () => {
   const genderManInput = useRef(null);
   const agreeInput = useRef(null);
 
-  // const form = document.querySelector('form');
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (e.target.type === "checkbox") {
+      setState((prevState) => ({ ...prevState, [name]: e.target.checked }));
+    } else {
+      setState((prevState) => ({ ...prevState, [name]: value }));
+      e.target.style.border = e.target.value ? validInput : invalidInput;
+    }
+  }
 
   const [nameMsg, setNameMsg] = useState("");
   const [emailMsg, setEmailMsg] = useState("");
@@ -100,73 +100,53 @@ const Validate = () => {
   const [genderMsg, setGenderMsg] = useState("");
   const [agreeMsg, setAgreeMsg] = useState("");
 
-  const resetFields = () => {
-    nameInput.current.value = '';
-    emailInput.current.value = '';
-    bioInput.current.value = '';
-    genderManInput.current.checked = false;
-    genderWomanInput.current.checked = false;
-    agreeInput.current.checked = false;
-  }
-
   const handleSubmit = (e) => {
-    setValidFields(true);
     e.preventDefault();
-    console.log(`1 stacja - sprawdzam validFields -- ${validFields}`)
+    let validFields = 0;
 
     if(!nameInput.current.value) {
       setNameMsg(errMsg.nameMsg);
       nameInput.current.style.border = invalidInput;
-      setValidFields(false);
     } else {
       setNameMsg("");
+      validFields++;
       nameInput.current.style.border = validInput;
     }
-    console.log(`2 stacja - sprawdzam validFields -- ${validFields}`)
 
     if(!emailInput.current.value) {
       setEmailMsg(errMsg.emailMsg);
       emailInput.current.style.border = invalidInput;
-      setValidFields(false);
     } else {
       setEmailMsg("");
+      validFields++;
       emailInput.current.style.border = validInput;
     }
-
-    console.log(`3 stacja - sprawdzam validFields -- ${validFields}`)
 
     if(!bioInput.current.value) {
       setBioMsg(errMsg.bioMsg);
       bioInput.current.style.border = invalidInput;
-      setValidFields(false);
     } else {
       setBioMsg("");
+      validFields++;
       bioInput.current.style.border = validInput;
     }
 
-    console.log(`4 stacja - sprawdzam validFields -- ${validFields}`)
-
     if(!genderWomanInput.current.checked && !genderManInput.current.checked) {
       setGenderMsg(errMsg.genderMsg);
-      setValidFields(false);
     } else {
       setGenderMsg("");
+      validFields++;
     }
-    console.log(`5 stacja - sprawdzam validFields -- ${validFields}`)
 
     if(!agreeInput.current.checked) {
       setAgreeMsg(errMsg.agreeMsg);
-      setValidFields(false);
     } else {
       setAgreeMsg("");
+      validFields++;
     }
 
-    console.log(`6 stacja - sprawdzam validFields -- ${validFields}`)
-
-    if(validFields) {
-      // e.target.submit();
-      setValidFields(true);
-      resetFields();
+    if(validFields === 5) {
+      clearState();
       setIsFormSent(true);
     }
   };
@@ -176,7 +156,6 @@ const Validate = () => {
       <div style={ styles.thanks } >Dzięki za wysłanie wiadomości!</div>
     )
   }
-  
 
   return (
     <>
@@ -189,7 +168,7 @@ const Validate = () => {
         placeholder="Imię"
         innerRef={nameInput}
         value={name}
-        onChange={handleNameChange}
+        onChange={handleChange}
       />
       <span style={ styles.error }>{nameMsg}</span>
       <Input
@@ -200,7 +179,7 @@ const Validate = () => {
         placeholder="Adres email"
         innerRef={emailInput}
         value={email}
-        onChange={handleEmailChange}
+        onChange={handleChange}
       />
       <span style={ styles.error }>{emailMsg}</span>
       <Input
@@ -212,7 +191,7 @@ const Validate = () => {
         rows="2"
         innerRef={bioInput}
         value={bio}
-        onChange={handleBioChange}
+        onChange={handleChange}
       />
       <span style={ styles.error }>{bioMsg}</span>
       <span style={ styles.label }>Płeć</span>
@@ -222,20 +201,20 @@ const Validate = () => {
           label="Kobieta"
           id="woman"
           value="woman"
-          checked={gender === 'woman'}
           innerRef={genderWomanInput}
-          name={genderWomanInput}
-          onChange={handleGenderChange}
+          checked={gender==="woman" ? true : false}
+          name="gender"
+          onChange={handleChange}
         />
         <Input
           type="radio"
           label="Mężczyzna"
           id="man"
           value="man"
-          checked={gender === 'man'}
           innerRef={genderManInput}
-          name={genderManInput}
-          onChange={handleGenderChange}
+          checked={gender==="man" ? true : false}
+          name="gender"
+          onChange={handleChange}
         />
       </div>
       <span style={ styles.error }>{genderMsg}</span>
@@ -248,7 +227,7 @@ const Validate = () => {
           errorMessage="Zaakceptuj regulamin"
           checked={agree}
           innerRef={agreeInput}
-          onChange={handleAgreeChange}
+          onChange={handleChange}
         />
       </div>
       <span style={ styles.error }>{agreeMsg}</span>

@@ -33,11 +33,11 @@ const Main = () => {
     <>
       {/* <Section sectionTitle="Rachunek w restauracji">
         <RestaurantForm />
-      </Section>
+      </Section> */}
       <Section sectionTitle="Formularz kontaktowy">
         <Validate />
       </Section>
-      <Section sectionTitle="React Hook Form">
+      {/* <Section sectionTitle="React Hook Form">
         <ReactForm />
       </Section>
       <Section sectionTitle="Domowe finanse">

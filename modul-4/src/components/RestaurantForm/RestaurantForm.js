@@ -56,7 +56,9 @@ const RestaurantForm = () => {
 
     if(Number(priceValue) === 0) {
       return alert('Kwota zamówienia nie może być równa 0');
-    } else if(Number(tipValue) === 0) {
+    }
+
+    if(Number(tipValue) === 0) {
       return alert('Daj napiwek');
     }
 
@@ -84,11 +86,11 @@ const RestaurantForm = () => {
         <form style={ styles } onSubmit={ handleSubmit }>
           <div style={ styles.wrapper }>
             <label style={ styles.label } htmlFor="price">Kwota zamówienia</label>
-            <input style={ styles.input } type="number" name="price" step="0.01" placeholder="Kwota zamówienia" onChange={ inputChange } onPaste={ handlePaste } />
+            <input style={ styles.input } type="number" name="price" step="0.01" placeholder="Kwota zamówienia" onChange={ inputChange } onPaste={ handlePaste } required />
           </div>
           <div style={ styles.wrapper }>
             <label style={ styles.label } htmlFor="tip">Procent napiwku</label>
-            <select style={ styles.input } name="tip" defaultValue="" onChange={ selectChange }>
+            <select style={ styles.input } name="tip" defaultValue="" onChange={ selectChange } required>
               <option value="" disabled>Wybierz procent napiwku</option>
               {tips.map( (el, i) => (
                 <option key={i} value={el}>{el}%</option>
