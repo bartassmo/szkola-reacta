@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
   const [dialogVisible, setDialogVisible] = useState(false);
-  const [snackbarVisible, setSnackbarVisible] = useState(false);
+  const [snackbarVisible, setSnackbarVisible] = useState(true);
 
   const openCloseModal = () => {
     setDialogVisible(!dialogVisible);
@@ -52,6 +52,7 @@ function App() {
           positionX="left"
           positionY="top"
           timeout="1500"
+          type="info"
           setVisible={setSnackbarVisible}
         />
         )}
