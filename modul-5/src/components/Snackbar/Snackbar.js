@@ -45,7 +45,7 @@ const Snackbar = ({ text = 'Snackbar', close, positionX = 'left', positionY = 'b
 
   useEffect(() => {
     const count = setTimeout(() => {
-      setVisible(true);
+      setVisible(false);
     }, timeout);
 
     return () => clearTimeout(count);
