@@ -9,9 +9,9 @@ const styles = {
   padding: '.25rem .75rem'
 }
 
-const Button = ({ label, style=styles, onClick }) => {
+const Button = ({ label, style=styles, onClick, disabled=null }) => {
   return (
-    <button style={ style } onClick={ onClick }>{label}</button>
+    <button style={ style } disabled={ disabled } onClick={ onClick }>{label}</button>
   )
 }
 

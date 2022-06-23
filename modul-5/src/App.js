@@ -1,15 +1,17 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 
 import Section from 'components/Section';
 import Button from 'components/Button';
 import Dialog from 'components/Dialog';
+import Snackbar from 'components/Snackbar';
 
 import './App.css';
 
 function App() {
   const [dialogVisible, setDialogVisible] = useState(false);
+  const [snackbarVisible, setSnackbarVisible] = useState(false);
 
-  const openCloseModal = (e) => {
+  const openCloseModal = () => {
     setDialogVisible(!dialogVisible);
   };
 
@@ -20,6 +22,12 @@ function App() {
   const dialogAbort = () => {
     console.log('abort');
   }
+
+  const openSnackbar = () => {
+    setSnackbarVisible(!snackbarVisible);
+  };
+
+
 
   return (
     <div className="App">
@@ -32,6 +40,19 @@ function App() {
           close={ openCloseModal }
           confirm={ dialogConfirm }
           abort={ dialogAbort }
+        />
+        )}
+      </Section>
+      <Section sectionTitle="Snackbar">
+        <Button label="Zobacz snackbar" disabled={snackbarVisible} onClick={ openSnackbar } />
+        { snackbarVisible && (
+        <Snackbar
+          text="Ładny mi wyszedł, prawda?"
+          close={ openSnackbar }
+          positionX="left"
+          positionY="top"
+          timeout="1500"
+          setVisible={setSnackbarVisible}
         />
         )}
       </Section>
