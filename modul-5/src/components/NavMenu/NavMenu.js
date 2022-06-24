@@ -73,8 +73,8 @@ const NavMenu = () => {
 
   return (
     <>
-      <nav style={ styles } isOpen={ isOpen }>
-        <button data-name={isOpen} style={ styles.close } onClick={handleToggle}>x</button>
+      <nav style={ styles }>
+        <button style={ styles.close } onClick={handleToggle}>x</button>
         <ul style={ styles.list }>
           <li>
             <NavLink style={ checkIsActive } to="/">Task 1</NavLink>
