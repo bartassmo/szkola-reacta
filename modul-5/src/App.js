@@ -1,62 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import Section from 'components/Section';
-import Button from 'components/Button';
-import Dialog from 'components/Dialog';
-import Snackbar from 'components/Snackbar';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
+
+import Task1 from 'pages/Task1';
+import Task2 from 'pages/Task2';
+import Task4 from 'pages/Task4';
+import Task5 from 'pages/Task5';
+
+import NavMenu from 'components/NavMenu';
 
 import './App.css';
 
 function App() {
-  const [dialogVisible, setDialogVisible] = useState(false);
-  const [snackbarVisible, setSnackbarVisible] = useState(false);
-
-  const openCloseModal = () => {
-    setDialogVisible(!dialogVisible);
-  };
-
-  const dialogConfirm = () => {
-    console.log('confirm');
-  }
-
-  const dialogAbort = () => {
-    console.log('abort');
-  }
-
-  const openSnackbar = () => {
-    setSnackbarVisible(!snackbarVisible);
-  };
-
-
 
   return (
     <div className="App">
-      <Section sectionTitle="Dialog">
-        <Button label="Zobacz modal" onClick={ openCloseModal } />
-        { dialogVisible && (
-        <Dialog
-          title="Modal"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod venenatis elit et tincidunt. Vivamus vel sem scelerisque, molestie lacus sit amet, pellentesque odio. Lorem."
-          close={ openCloseModal }
-          confirm={ dialogConfirm }
-          abort={ dialogAbort }
-        />
-        )}
-      </Section>
-      <Section sectionTitle="Snackbar">
-        <Button label="Zobacz snackbar" disabled={snackbarVisible} onClick={ openSnackbar } />
-        { snackbarVisible && (
-        <Snackbar
-          text="Ładny mi wyszedł, prawda?"
-          close={ openSnackbar }
-          positionX="left"
-          positionY="top"
-          timeout="1500"
-          type="info"
-          setVisible={setSnackbarVisible}
-        />
-        )}
-      </Section>
+      <Router>
+        <NavMenu />
+        <Routes>
+          <Route path='/' element={<Task1 />}></Route>
+          <Route path='/task2' element={<Task2 />}></Route>
+          <Route path='/task4' element={<Task4 />}></Route>
+          <Route path='/task5' element={<Task5 />}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
