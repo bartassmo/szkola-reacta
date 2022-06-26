@@ -20,6 +20,7 @@ const NavMenu = () => {
       listStyle: 'none',
       margin: 0,
       padding: '3.5rem 4rem',
+      alignItems: 'flex-start'
     },
     item: {
       textDecoration: 'none',
@@ -77,16 +78,16 @@ const NavMenu = () => {
         <button style={ styles.close } onClick={handleToggle}>x</button>
         <ul style={ styles.list }>
           <li>
-            <NavLink style={ checkIsActive } to="/">Task 1</NavLink>
+            <NavLink style={ checkIsActive } to="/">Task 1 - Dialog</NavLink>
           </li>
           <li>
-            <NavLink style={ checkIsActive } to="/task2">Task 2</NavLink>
+            <NavLink style={ checkIsActive } to="/task2">Task 2 - Snackbar</NavLink>
           </li>
           <li>
-            <NavLink style={ checkIsActive } to="/task4">Task 4</NavLink>
+            <NavLink style={ checkIsActive } to="/users">Users</NavLink>
           </li>
           <li>
-            <NavLink style={ checkIsActive } to="/task5">Task 5</NavLink>
+            <NavLink style={ checkIsActive } to="/user-profile">User profile</NavLink>
           </li>
         </ul>
       </nav>

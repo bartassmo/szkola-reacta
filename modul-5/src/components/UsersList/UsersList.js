@@ -1,5 +1,7 @@
 import React from "react";
 
+import User from "components/User";
+
 const styles = {
   display: 'flex',
   flexDirection: 'column',
@@ -8,10 +10,18 @@ const styles = {
   margin: '10px auto 0'
 }
 
-const UsersList = ({ children }) => {
+const UsersList = ({ users, saveUser }) => {
   return (
     <ul style={ styles }>
-      { children }
+      {users &&
+        users.map((user) => (
+          <User
+            key={user.id}
+            user={user}
+            saveUser={saveUser}
+           />
+        ))
+      }
     </ul>
   )
 }

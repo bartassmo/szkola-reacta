@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
+import UserSearch from "components/UserSearch";
 import UsersList from "components/UsersList";
-import User from "components/User";
 
-const UsersContainer = () => {
-  const [data, setData] = useState(null);
+const styles = {
+  display: 'inline-flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start'
+}
+
+const UsersContainer = ({saveUser}) => {
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
+  const [value, setValue] = useState(null);
 
-  const handleClick = async () => {
+  const getData = async () => {
     setLoading(true);
-
     try {
       const response = await fetch('/users.json');
       if (!response.ok) {
@@ -28,20 +34,33 @@ const UsersContainer = () => {
       setLoading(false);
     }
   }
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const handleKeyDown = (e) => {
+    if(e.key === 'Enter' && e.keyCode === 13) {
+      setValue(e.target.value.toLowerCase())
+    } else if(e.target.value === '') {
+      setValue(null);
+    }
+  }
+  const filteredUsers = data.filter((user) => {
+    if (value) {
+      return user.firstName.toLowerCase().includes(value.toLowerCase())
+    }
+    return user
+  })
+
 
   return (
-    <div>
-      <span onClick={handleClick}>Lista Userów z Fetcha</span>
+    <div style={ styles }>
       {loading && <div>Trwa ładowanie...</div>}
       {error && (
         <div>{`Niestety, wystąpił problem z pobraniem informacji - ${error}`}</div>
       )}
-      <UsersList>
-        {data &&
-          data.map(({ id, firstName, email, jobTitle }) => (
-            <User id={ id } name={ firstName } email={ email } position={ jobTitle } />
-          ))}
-      </UsersList>
+      <UserSearch onKeyDown={ handleKeyDown } setValue={ setValue } />
+      <UsersList users={ filteredUsers } saveUser={ saveUser } />
     </div>
   )
 }
