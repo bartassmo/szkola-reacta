@@ -1,0 +1,63 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 auto 10px;
+  position: relative;
+}
+
+label {
+  margin: 0 0 5px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+input {
+  padding: 0.5rem 1rem;
+  margin: 0;
+  line-height: 1;
+  border: 1px solid #242424;
+}
+
+.error {
+  display: block;
+  color: #ed2939;
+  font-size: 1;
+}
+
+.errors {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.errors span::before {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.errors .invalid {
+  color: #ed2939;
+}
+
+.errors .invalid::before {
+  content: '\d7';
+}
+
+.errors .valid {
+  color: green;
+}
+
+.errors .valid::before {
+  content: '\2713';
+}
+
+.submit {
+  padding: 0.5rem 1rem;
+  margin-top: 10;
+  line-height: 1;
+  border: 1px solid #242424;
+  background-color: transparent;
+  display: inline-block;
+  cursor: pointer;
+}
