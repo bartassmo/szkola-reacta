@@ -1,4 +1,4 @@
-.user {
+.user-item {
   display: flex;
   padding: 25px 40px;
   border: 1px solid #242424;
@@ -26,7 +26,7 @@
     object-fit: cover;
   }
   &__bio {
-
+    padding-left: 15px;
   }
   &__details {
     width: 40%;

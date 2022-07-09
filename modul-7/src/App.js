@@ -6,8 +6,7 @@ import {
 } from 'react-router-dom';
 import Header from 'components/Header';
 import UserList from 'components/UserList';
-
-
+import UserDetails from 'components/UserDetails';
 
 import './App.css';
 
@@ -17,6 +16,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<h1>Home </h1> } />
+        <Route path="users/:id" element={<UserDetails />} />
         <Route path="users" element={<UserList />} />
       </Routes>
     </Router>

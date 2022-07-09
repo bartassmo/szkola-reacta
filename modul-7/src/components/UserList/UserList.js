@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import User from "components/User/User";
+import { Link } from "react-router-dom";
 
 const styles = {
   display: 'flex',
   flexDirection: 'column',
-  maxWidth: '75vw',
+  maxWidth: '55vw',
   margin: '40px auto 0'
 }
 
@@ -38,8 +39,10 @@ function UserList() {
     <div style={styles}>
       {isLoading && !hasError && <p>Trwa wczytywanie...</p>}
       {hasError && <p>Wystąpił problem - szczegóły w konsoli.</p>}
-      {users.map((user) => (
-        <User item={user} key={user.login.uuid} />
+      {users.map((user, id) => (
+        <Link state={{ user: user }} key={`user-${id}`} to={`/users/${id}`}>
+          <User user={user} />
+        </Link>
       ))}
     </div>
   )

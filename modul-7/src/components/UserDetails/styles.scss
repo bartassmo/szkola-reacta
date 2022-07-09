@@ -1,0 +1,27 @@
+.user {
+  text-align: center;
+  width: min(960px, 75vw);
+  margin: 50px auto 0;
+  filter: drop-shadow(2px 3px 5px #000);
+  border-radius: 5px;
+  background-color: #fff;
+  &__imgWrapper {
+    display: inline-block;
+    border: 2px solid #242424;
+    padding: 2px;
+    border-radius: 50%;
+    width: 126px;
+    height: 126px;
+    overflow: hidden;
+    margin-top: calc(-1 * 125px / 2);
+    background-color: #fff;
+    box-sizing: border-box;
+  }
+  &__img {
+    display: block;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
