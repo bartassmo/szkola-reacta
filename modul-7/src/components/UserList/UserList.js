@@ -6,7 +6,7 @@ const styles = {
   display: 'flex',
   flexDirection: 'column',
   maxWidth: '55vw',
-  margin: '40px auto 0'
+  margin: '0 auto'
 }
 
 function UserList() {

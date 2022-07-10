@@ -5,9 +5,9 @@ import {
   Route
 } from 'react-router-dom';
 import Header from 'components/Header';
-import UserList from 'components/UserList';
 import UserDetails from 'components/UserDetails';
-
+import Home from 'pages/Home';
+import Users from './pages/Users';
 import './App.css';
 
 function App() {
@@ -15,9 +15,9 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<h1>Home </h1> } />
+        <Route path="/" element={<Home /> } />
         <Route path="users/:id" element={<UserDetails />} />
-        <Route path="users" element={<UserList />} />
+        <Route path="users" element={<Users />} />
       </Routes>
     </Router>
   );
