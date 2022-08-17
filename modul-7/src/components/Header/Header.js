@@ -28,6 +28,18 @@ function Header() {
         <li style={styles.li}>
           <Link to ='/users' style={styles.link}>Users</Link>
         </li>
+        <li style={styles.li}>
+          <Link to ='/campaigns' style={styles.link}>Campaigns</Link>
+        </li>
+        <li style={styles.li}>
+          <Link to ='/campaigns/add-campaign' style={styles.link}>Add Campaign</Link>
+        </li>
+        <li style={styles.li}>
+          <Link to ='/subscribers' style={styles.link}>Subscribers</Link>
+        </li>
+        <li style={styles.li}>
+          <Link to ='/subscribers/add-subscriber' style={styles.link}>Add Subscriber</Link>
+        </li>
       </ul>
     </nav>
   )

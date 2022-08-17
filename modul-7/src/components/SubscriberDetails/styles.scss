@@ -1,0 +1,48 @@
+.sub {
+  width: 50vw;
+  margin: 0 auto;
+  &__item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5px;
+    padding: 10px;
+    &:nth-of-type(odd) {
+      background-color: #f1f1f1;
+    }
+  }
+  &__text {
+    font-size: 17px;
+  }
+  &__name {
+    text-align: right;
+    font-weight: 500;
+  }
+  &__btn {
+    margin: 20px auto;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    border: 1px solid currentColor;
+    line-height: 1;
+    padding: 10px 20px;
+    display: block;
+    width: fit-content;
+    transition: all .2s;
+    &:hover {
+      background-color: #000;
+      color: white;
+    }
+  }
+  &__action {
+    display: block;
+    text-align: center;
+  }
+  &__delete {
+    font-weight: 700;
+    transition: all .2s;
+    cursor: pointer;
+    &:hover {
+      color: #ed2939;
+    }
+  }
+}
