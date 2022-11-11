@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import LoginContext from "components/LoginContext";
+import LoginContext from "data/LoginContext";
 
 const validInput = `1px solid #242424`;
 const invalidInput = `1px solid #ed2939`;
@@ -63,8 +63,9 @@ const PassphraseForm = () => {
   useEffect(() => {
     if (isSubmitSuccessful) {
       setAuthenticated(true);
+      reset();
     }
-  }, [isSubmitSuccessful, setAuthenticated]);
+  }, [isSubmitSuccessful, setAuthenticated, reset]);
 
   return (
     <div style={ styles }>

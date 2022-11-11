@@ -3,7 +3,7 @@ import PassphraseForm from "components/PassphraseForm";
 
 function LoginPage() {
   return (
-    <Section>
+    <Section sectionTitle="Tajna treść. Podaj hasło.">
       <PassphraseForm />
     </Section>
   )
