@@ -10,20 +10,24 @@ import LoginPage from "pages/LoginPage";
 import ContentPage from "pages/ContentPage";
 import PlacesPage from "pages/PlacesPage";
 import MoviesPage from "pages/MoviesPage";
+import Navbar from "components/Navbar";
 
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
   return (
-    <LoginContext.Provider value={{ authenticated, setAuthenticated }}>
-      <Router>
-        <Routes>
-          <Route path="/" element={authenticated ? <ContentPage /> : <LoginPage />}/>
-          <Route path="/places" element={authenticated ? <PlacesPage /> : <LoginPage />}/>
-          <Route path="/movies" element={authenticated ? <MoviesPage /> : <LoginPage />}/>
-        </Routes>
-      </Router>
-    </LoginContext.Provider>
+    <div className="App">
+      <LoginContext.Provider value={{ authenticated, setAuthenticated }}>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={authenticated ? <ContentPage /> : <LoginPage />}/>
+            <Route path="/places" element={authenticated ? <PlacesPage /> : <LoginPage />}/>
+            <Route path="/movies" element={authenticated ? <MoviesPage /> : <LoginPage />}/>
+          </Routes>
+        </Router>
+      </LoginContext.Provider>
+    </div>
   );
 }
 

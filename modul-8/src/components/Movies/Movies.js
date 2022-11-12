@@ -1,11 +1,13 @@
 import React from "react";
+import withUser from "components/WithUser/WithUser";
 
-const Movies = () => {
+const Movies = ({email, isAdmin}) => {
   return (
     <>
-      <h1>Movies component</h1>
+      <h1>Email: {email}</h1>
+      <h2>isAdmin: {isAdmin ?? 'tak'}</h2>
     </>
   )
 }
 
-export default Movies;
+export default withUser(Movies);
