@@ -1,12 +1,33 @@
 import React from "react";
 import WithUser from "components/WithUser/WithUser";
+import { FaCheckCircle, FaTimesCircle  } from 'react-icons/fa';
 
 const Places = ({email, isAdmin}) => {
+  const style = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    gap: 10,
+    text: {
+      fontSize: 18,
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: 10,
+    },
+    title: {
+      fontWeight: 600
+    },
+    icon: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      color: isAdmin ? 'green' : 'red'
+    }
+  }
   return (
-    <>
-      <h1>Email: {email}</h1>
-      <h2>isAdmin: {isAdmin ?? 'tak'}</h2>
-    </>
+    <div style={style}>
+      <span style={style.text}><span style={style.title}>Email:</span> {email}</span>
+      <span style={style.text}><span style={style.title}>Administrator:</span> <span style={style.icon}>{isAdmin ? <FaCheckCircle /> : <FaTimesCircle /> }</span></span>
+    </div>
   )
 }
 

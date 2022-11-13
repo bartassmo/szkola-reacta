@@ -1,7 +1,6 @@
 import React from "react";
 import UseMobile from "components/UseMobile";
-import { FaBeer } from 'react-icons/fa';
-import { AiFillAccountBook, AiFillBook } from "react-icons/ai";
+import { FaVideo, FaPlane  } from 'react-icons/fa';
 
 import { MobileNavItem, DesktopNavItem } from "components/NavItem/NavItem";
 
@@ -34,10 +33,13 @@ const Navbar = () => {
   return (
     <nav style={style}>
       <ul style={style.list}>
-        {/* {UseMobile ? <MobileNavItem icon={AiFillBook} path='/'  /> : <DesktopNavItem title="Test" icon={FaBeer} path='/' />} */}
-        <li>
-          <h1>{AiFillBook}</h1>
-        </li>
+        {UseMobile() ? (
+            <MobileNavItem icon={<FaPlane/>} path='/places'  />
+          ) : (
+            <DesktopNavItem title="Miejsca" icon={<FaPlane/>} path='/places' />
+          )
+        }
+        {UseMobile() ? <MobileNavItem icon={<FaVideo/>} path='/movies'  /> : <DesktopNavItem title="Filmy" icon={<FaVideo/>} path='/movies' />}
       </ul>
     </nav>
   )

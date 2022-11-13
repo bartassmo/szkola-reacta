@@ -16,7 +16,7 @@ const UseMobile = () => {
   }, [setWidth])
 
   useEffect(() => {
-    (width > 1024 ? setIsMobile(false) : setIsMobile(true));
+    (width?.width > 1024 ? setIsMobile(false) : setIsMobile(true));
   }, [width]);
 
   return isMobile;
