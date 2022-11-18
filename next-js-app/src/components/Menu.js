@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 
 const NavLink = forwardRef(({ href, onClick, children }, ref) => {
   const router = useRouter();
-  console.log('router: ', router);
   return (
     <a
       href={href}
@@ -25,6 +24,9 @@ const Menu = () => {
       </Link>
       <Link href='/about' passHref legacyBehavior>
         <NavLink>About</NavLink>
+      </Link>
+      <Link href='/posts' passHref legacyBehavior>
+        <NavLink>Posts</NavLink>
       </Link>
       <Link href='/contact' passHref legacyBehavior>
         <NavLink>Contact</NavLink>
